@@ -1,0 +1,470 @@
+<!doctype html>
+<meta charset="UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+
+<html>
+
+<head>
+
+</head>
+<style>
+
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,700'); /* import Montserrat font  */
+
+body, html{
+    font-family: 'Montserrat', sans-serif;
+    height: 100;
+    margin: 0;
+}
+
+body{
+    background: #F4F4F4 url('../assets/candlebg.svg');
+    background-size: cover;
+}
+
+.content {
+    background: #F4F4F4 url('../assets/candlebg.svg');
+}
+
+#home-container{
+    display: grid;
+    grid-template-columns: .5fr 1fr 1fr .5fr; /* for left and right sections */
+    grid-gap: 10px;
+    grid-template-areas:
+            ". left right .";
+    height: 100%;
+    position: absolute;
+}
+
+#inner{
+    grid-area: left;
+    align-self: center;
+    justify-self: center;
+}
+
+#illustration{
+    grid-area: right;
+    align-self: center;
+    justify-self: center;
+    width: 80%;
+    padding: 20%;
+}
+
+img#logo{
+    width: 130px;
+    margin-bottom: 1.6em;
+}
+
+h1{
+    text-transform: uppercase;
+    color: #535353;
+    margin-bottom: .2em;
+}
+
+p.subtitle{
+    font-size: 1.4em;
+    color: #858585;
+    margin-top: 0;
+}
+
+.cta{
+    background-color: #09BBE9;
+    padding: 1em;
+    color: #fff;
+    font-weight: bold;
+    margin-top: 2em;
+    display: inline-block;
+    border-radius: 5px;
+    text-decoration: none;
+    /* TODO: add glowing type animation while on hover */
+}
+
+#monitor{
+    animation: monitorIn 1s ease-in-out forwards; /* assign animation to monitor with 'monitorIn' as keyframe name */
+    opacity: 0;
+}
+
+.crypto-icons{
+    position: absolute;
+    width: 12%;
+}
+
+#dash{
+    margin-top: -4%;
+    margin-left: 9%;
+    animation: chatblips .5s ease-in-out 2.7s forwards; /* assign animation to dash with 'chatblips' as keyframe name */
+    opacity: 0;
+    z-index: 2;
+}
+
+#eth{
+    margin-top: 9.5%;
+    margin-left: 18%;
+    animation: chatblips .5s ease-in-out 1.9s forwards; /* assign animation to eth with 'chatblips' as keyframe name */
+    opacity: 0;
+    z-index: 2;
+}
+
+#iota{
+    margin-top: 5%;
+    margin-left: -1.5%;
+    animation: chatblips .5s ease-in-out .8s forwards; /* assign animation to iota with 'chatblips' as keyframe name */
+    opacity: 0;
+    z-index: 2;
+}
+
+@keyframes monitorIn{
+    from{
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes chatblips{
+    /* taken from http://angrytools.com/css/animation/ for bounce-in animation*/
+    0%{
+        opacity: 0;
+        transform: scale(.3);
+      }
+      50%{
+        opacity: 1;
+        transform: scale(1.0);
+      }
+      70%{
+        transform: scale(0.9);
+      }
+      100%{
+        transform: scale(1);
+        opacity: 1;
+      }
+}
+
+.mySlides {
+  width: 100%
+}
+
+/* Style tab links */
+.tablink {
+  background-color: #555;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 25%;
+}
+
+.tablink:hover {
+    background-color: rgb(47, 117, 158);
+}
+
+.container {
+    position: relative;
+    width: 100%;
+}
+
+.container img {
+    width: 100%;
+    height: auto;
+}
+
+.container .btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    padding: 16px 30px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    color: blue;
+    float: left;
+    font-size: 17px;
+    width: 25%;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    overflow: hidden;
+    outline:none;
+}
+
+.container .image {
+    opacity: 0.5;
+    width: 100%;
+}
+
+.portrait {
+    width: 25%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+input[type=text], select, textarea {
+  width: 100%; /* Full width */
+  padding: 12px; /* Some padding */
+  border: 1px solid #ccc; /* Gray border */
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 16px; /* Bottom margin */
+  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+
+}
+
+/* Style the submit button with a specific background color etc */
+input[type=submit] {
+  background-color: rgb(47, 117, 158);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* When moving the mouse over the submit button, add a darker green color */
+input[type=submit]:hover {
+  background-color: #555;
+}
+
+/* Add a background color and some padding around the form */
+.contact-form {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.success-banner {
+  padding: 20px;
+  background-color: green
+  color: black;
+  margin-bottom: 15px;
+}
+
+/* The close button */
+.closebtn {
+  margin-left: 15px;
+  color: black;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+  color: #555;
+}
+
+
+</style>
+
+<body>
+
+<div id="home-container" class="container">
+
+    <div id="inner">
+        <h1>Ellie Hallenborg</h1>
+        <p class="subtitle">Developer/Mechanical Engineer</p>
+        <a button class="btn" onclick="myFunction()">Enter</a>
+    </div>
+    <div id="illustration">
+    </div>
+    <!-- illustration sub id ends -->
+
+
+    <div id="successfully-sent" class="success-banner" hidden>
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <strong>Success!</strong> The email has been sent.
+    </div>
+
+</div>
+
+<div id="content" hidden>
+
+<section>
+  <img class="mySlides" src="london-photo-banner.jpg">
+  <button class="tablink" onclick="openPage('Home', this)" id="defaultOpen">Home</button>
+  <button class="tablink" onclick="openPage('Resume', this)" >Resume</button>
+  <button class="tablink" onclick="openPage('Projects', this)">Projects</button>
+  <button class="tablink" onclick="openPage('Contact', this)">Contact</button>
+</section>
+
+<div id="Home" class="tabcontent">
+
+  <section class="w3-container w3-center">
+    <h2 class="w3-wide">Ellie Hallenborg</h2>
+    <p class="w3-opacity"><i>Developer/Mechanical Engineer</i></p>
+    <img class="portrait" src="portrait.jpg">
+    <h4 class="w3-opacity">I'm a recent graduate (c. 2018) based in Boston.</h4>
+    <h4 class="w3-opacity">I have just started learning Front-End development so let me know what you think of my website.</h4>
+  </section>
+
+</div>
+
+<div id="Resume" class="tabcontent">
+
+  <section class="w3-container w3-center">
+    <h2 class="w3-wide">Resume</h2>
+    <embed src="elizabeth_hallenborg_resume.pdf" type="application/pdf" width="100%" height="600px"/>
+  </section>
+
+</div>
+
+<div id="Contact" class="tabcontent">
+  <section class="w3-container w3-center">
+    <h2 class="w3-wide">Contact Details</h2>
+    <p class="w3-opacity">Email: ehallenborg@gmail.com</p>
+    <p class="w3-opacity">Phone: (857) 264-1504 </p>
+    <a href="https://www.linkedin.com/in/elizabeth-hallenborg/" target="_blank">LinkedIn</a>
+
+
+  <div class="contact-form">
+      <form id="javascript_form">
+        <input type="text" name="email"
+                    placeholder="Your Email" />
+        <input type="text" name="subject" placeholder="Subject" />
+        <textarea name="text" placeholder="Message"></textarea>
+        <input type="submit" id="js_send" value="Send" />
+      </form>
+  </div>
+
+  </section>
+</div>
+
+<div id="Projects" class="tabcontent">
+  <section class="w3-container w3-center">
+    <h2 class="w3-wide">Under Construction</h2>
+  </section>
+</div>
+
+</div>
+
+<script>
+
+function openPage(pageName,elmnt) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+
+  document.getElementById(pageName).style.display = "block";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+
+</script>
+
+<script>
+
+function myFunction() {
+  var x = document.getElementById("content");
+  var y = document.getElementById("home-container");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+    y.style.display = "none";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+</script>
+
+<script>
+
+    //update this with your js_form selector
+    var form_id_js = "javascript_form";
+
+    var data_js = {
+        "access_token": "8ooorrsf2o8gmhsb5aopb681"
+    };
+
+    function js_onSuccess() {
+        // remove this to avoid redirect
+        window.location = window.location.pathname + "?message=Email+Successfully+Sent%21&isError=0";
+    }
+
+    function js_onError(error) {
+        // remove this to avoid redirect
+        window.location = window.location.pathname + "?message=Email+could+not+be+sent.&isError=1";
+    }
+
+    var sendButton = document.getElementById("js_send");
+
+    function js_send() {
+        sendButton.value='Sending…';
+        sendButton.disabled=true;
+        var request = new XMLHttpRequest();
+        request.onreadystatechange = function() {
+            if (request.readyState == 4 && request.status == 200) {
+                js_onSuccess();
+            } else
+            if(request.readyState == 4) {
+                js_onError(request.response);
+            }
+        };
+
+        var x = document.getElementById("successfully-sent");
+
+        var email = document.querySelector("#" + form_id_js + " [name='email']").value;
+        var subject = document.querySelector("#" + form_id_js + " [name='subject']").value;
+        var message = document.querySelector("#" + form_id_js + " [name='text']").value;
+        data_js['reply_to'] = email;
+        data_js['subject'] = subject;
+        data_js['text'] = message;
+        var params = toParams(data_js);
+
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+          }
+
+
+        request.open("POST", "https://postmail.invotes.com/send", true);
+        request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+        request.send(params);
+
+
+        return false;
+    }
+
+    sendButton.onclick = js_send;
+
+    function toParams(data_js) {
+        var form_data = [];
+        for ( var key in data_js ) {
+            form_data.push(encodeURIComponent(key) + "=" + encodeURIComponent(data_js[key]));
+        }
+
+        return form_data.join("&");
+    }
+
+    var js_form = document.getElementById(form_id_js);
+    js_form.addEventListener("submit", function (e) {
+        e.preventDefault();
+    });
+
+</script>
+
+</body>
+
+</html>
+
+
